@@ -42,6 +42,7 @@ grind_state_t grind(struct Parser* parser) {
                     freed = true;
                 }
                 prev = itr;
+                itr = itr->next;
             }
             if (!freed) {
                 return GRIND_BAD_FREE;
@@ -82,5 +83,4 @@ static unsigned hash(unsigned idx) {
 
 static void free_grind_elem(struct grind_elem** ge) {
     free(*ge);
-    *ge = NULL;
 }
